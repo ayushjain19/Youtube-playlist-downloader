@@ -1,0 +1,22 @@
+# update & upgrade
+sudo apt-get update
+sudo apt-get upgrade
+
+#Python3 should be installed first
+sudo apt-get install python3
+
+#install pip
+sudo apt-get -y install python-pip
+
+#We now have to download Request module
+sudo pip install requests
+
+#install pip3
+sudo apt-get -y install python3-pip
+
+#Next install pytube- a library for downloading youtube videos(it requires Python3 which we installed above)
+pip3 install pytube
+
+clear
+
+echo "All requirements are met. Please try running the videos.py file by giving the following in command line: python3 videos.py <playlist link> <path to the download directory>"
