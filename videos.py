@@ -1,6 +1,7 @@
 import sys
 import re
 import urllib.request
+import os
 
 from pytube import YouTube
 
@@ -56,7 +57,7 @@ if __name__ == '__main__':
 		exit(1)
 
 	else:
-		num = 0
+		num = 1
 		playlist_link = sys.argv[1]								#A variable that store the link of the playlist
 		directory = sys.argv[2]									#A variable that stores the path of the doenload directory
 		all_video_links = []
@@ -77,25 +78,18 @@ if __name__ == '__main__':
 			if flag == 0:
 				final_video_list.append(link)
 
-		f = open("video_links.txt", "w")		#A file named video_links.txt is created which stores the links of the videos in the playlist
+		f = open(os.path.join(directory,"video_links.txt"), "w")		#A file named video_links.txt is created which stores the links of the videos in the playlist
+		f.write("These are the links in the playlist you provided:\n\n")
 		for video_link in final_video_list:
-			f.write(str(video_link) + "\n")
+			f.write(str(num) + ". " + str(video_link) + "\n")
+			num = num + 1
 		f.close()
 		print("There are " + str(len(final_video_list)) + " videos in the playlist.")
+		num = 0
 		for video_link in final_video_list:
 			num = num + 1
 			download_video(num, video_link, directory)
-			
 
-
-
-
-
-
-
-
-
-
-
-
-
+		exit(0)			
+#program ends
+		
