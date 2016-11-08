@@ -1,6 +1,5 @@
-# update & upgrade
+# update
 sudo apt-get update
-sudo apt-get upgrade
 
 #Python3 should be installed first
 sudo apt-get install python3
